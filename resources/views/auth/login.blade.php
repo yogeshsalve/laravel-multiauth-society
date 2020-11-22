@@ -7,8 +7,18 @@
     <title>Document</title>
     <style>
     body {
-  background-image: url('images/building.jpg');
-}
+        background-image: url('images/b1.jpg');
+    }
+    .container .content {
+  position: absolute;
+  bottom: 20;
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.1); /* Black background with 0.5 opacity */
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+  /* border-color:#ffffb3; */
+
 </style>
 </head>
 <body >
@@ -18,11 +28,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card content">
                 <!-- <div class="card-header">{{ __('Login') }}</div> -->
                 <div class="card-header"> {{ isset($url) ? ucwords($url) : ""}} {{ __('Login') }}</div>
 
-                <div class="card-body">
+                <div class="card-body ">
                     @isset($url)
                     <!-- <form method="POST" action="{{ route('login') }}"> -->
                     <form method="POST" action='{{ url("login/$url") }}' aria-label="{{ __('Login') }}">

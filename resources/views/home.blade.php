@@ -106,9 +106,9 @@
                        <!-- table      -->
 <div class="table-responsive text-nowrap">                      
 <table class="table table-hover" border="1">
-<tr>
-<th colspan="4" style="color:black;"><center>Todays Visitors</center></th>
-</tr>
+
+<center><h4>Todays Visitors</center></h4>
+
 <tr>
 <th class="thcolor" scope="col">Id</td>
 <th class="thcolor" scope="col">Visitors Name</th>

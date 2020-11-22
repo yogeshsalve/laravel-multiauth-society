@@ -19,6 +19,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\contactusController;
 use App\Http\Controllers\VisitorController;
+use App\Http\Controllers\LoginDashboardController;
 
 Route::view('/', 'welcome');
 Auth::routes();
@@ -53,6 +54,9 @@ Route::get('/amenities', [PagesController::class, 'amenities']);
 Route::get('/parking', [PagesController::class, 'parking']);
 Route::get('/complaints', [PagesController::class, 'complaints']);
 Route::get('/contactus', [contactusController::class, 'contactus']);
+
+// Route::view('/logindashboard', 'pages/logindashboard');
+Route::get('/logindashboard', [LoginDashboardController::class, 'logindashboard']);
 
 Route::post('contactus', [contactusController::class, 'addContact']);
 

@@ -1,8 +1,40 @@
 @extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+    html,body{
+        max-width:100%;
+        overflow-x:hidden;
+    }
+    /* .maindiv{
+        padding-top: -0.5rem;
+    } */
+    .navbar-default{
+    background-color:#0f1442;
+    border-color: white;
+  }
+  .card-color1{
+    background-color:#e1e1d0;
+    border-color: white;
+  }
 
+.card-color {
+    height: 50px;
+    background: linear-gradient(to left, #000066 0%, #99ccff 100%)
+    
+}
+h5 {
+  color: #0f1442;
+}
+  .thcolor{
+    background-color: #0f1442;
+    color:white;
+  }
+  </style>
 @section('content')
 <div >
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav  class="navbar navbar-default navbar-expand-lg navbar-dark">
   <a class="navbar-brand" href="#">Society</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -47,23 +79,23 @@
     <div class="row justify-content-center">
         <div class="col-lg-12">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <!-- <div class="card-header">{{ __('Dashboard') }}</div> -->
 
-                <div class="card-body bg-secondary mb-3">
+                <div class="card-body card-color1 mb-3">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
 
-                    <h5 class="text-white">Welcome {{ __( Auth::user()->name) }}</h5>
+                    <h5>Welcome {{ __( Auth::user()->name) }}</h5>
 
 <div class="card">
 <div class="row">
 
   <div class="col-sm-12">
     <div class="card">
-    <div class="card-header text-white" style="background-color: #1d5bb8;">
+    <div class="card-header card-color text-white" >
       <h4><center>Pay your Maintenance Here</center></h4>
       </div>
       <div class="card-body">
@@ -123,7 +155,7 @@
 
   
     
-  <button type="submit" class="btn btn-primary float-right">Click to Pay</button>
+  <button type="submit" class="btn card-color float-right">Click to Pay</button>
 </form>
         
       </div>
