@@ -20,6 +20,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\contactusController;
 use App\Http\Controllers\VisitorController;
 use App\Http\Controllers\LoginDashboardController;
+use App\Http\Controllers\gymcontroller;
 
 Route::view('/', 'welcome');
 Auth::routes();
@@ -62,6 +63,18 @@ Route::post('contactus', [contactusController::class, 'addContact']);
 
 Route::get('visitors', [VisitorController::class, 'visitors']); 
 Route::post('visitors',[VisitorController::class, 'addData']);
-Route::get('visitor_list',[VisitorController::class, 'show']); 
+Route::get('visitor_list',[VisitorController::class, 'show']);
 
-Route::get('home',[VisitorController::class, 'show1']);
+Route::get('visitors',[VisitorController::class, 'show1']);
+
+
+
+// Route::get('home',[VisitorController::class, 'show1']);
+
+
+
+
+Route::view('/gym', 'gym');
+ Route::post('/gym', [gymcontroller::class, 'addData']);
+ Route::get('/gym',[gymcontroller::class, 'show2']);
+

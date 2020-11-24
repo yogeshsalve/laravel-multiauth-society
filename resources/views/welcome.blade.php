@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html>
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
         <title>Society App</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        
         <!-- Fonts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
+        <link rel="stylesheet" type="text/css" href="css/style.css">
         <!-- add icon link -->
         <link rel = "icon" href =  
 "/images/logo2.png" 
@@ -19,52 +24,50 @@
           
             
         </style>
-
-        <style>
-            body {
-                font-family: 'Nunito';
-            }
-            .navbar-default{
-                background-color:#0f1442;
-                border-color: white;
-            }
-            .buttoncolor {
-                height: 40px;
-                color:white;
-                background: linear-gradient(to left, #6600cc 0%, #cc0099 100%)
-            }
-                        
-        </style>
-        <style>
-            .typewriter h1 {
-  color: #000;
-  font-family: monospace;
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid orange; /* The typwriter cursor */
-  white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: .15em; /* Adjust as needed */
-  animation: 
-    typing 5.5s steps(30, end),
-    blink-caret .5s step-end infinite;
+<style>
+    html {
+  scroll-behavior: smooth;
 }
-
-/* The typing effect */
-@keyframes typing {
-  from { width: 0 }
-  to { width: 90% }
+    #section2 {
+  height: 450px;
+  background-color: yellow;
 }
-
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: orange }
+#lastdiv{
+    background-color:#53565A;
 }
-        </style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
+        
     </head>
     <body class="antialiased">
-            <!-- card -->
-            <div class="card">
+            
+            
                
                 <!-- navbar -->
                 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
@@ -89,17 +92,31 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Company</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="logindashboard">Login</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Login
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/login">User</a>
+          <a class="dropdown-item" href="/login/member">Staff</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/login/admin">Admin</a>
+        </div>
       </li>
+      
     </ul>
+    <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+        <button><a  href="tel:+91-9422082780">Call Now</a></button>
+    </li>
+</ul>
+   
     
   </div>
 </nav>
                 <!-- navbar -->
                 
-                </div>
-            <!-- card -->
+                
 <br><br>
 <div class="container">
   <div class="align-items-center row">
@@ -129,15 +146,17 @@
             
             
             <div class="btn-group-vertical">
-                <a href="#"><button type="button" class="buttoncolor" style="margin:5px; width:210px" class="btn btn-primary ">SCHEDULE A DEMO</button></a>
+                <a href="#section2"><button type="button" class="buttoncolor" style="margin:5px; width:210px" class="btn btn-primary ">SCHEDULE A DEMO</button></a>
                 <a href="https://api.whatsapp.com/message/7TBU4MDUDWU4F1"><button type="button" style="margin:5px; width:210px" class="btn btn-secondary ">Get Details on Whatsapp</button></a>
             </div>
         </div>
     </div>
     <div class="col-sm">
-      <img src="/images/welcome/1.jpg" alt="" width="640px;">
+        
+      <img src="/images/welcome/main.png" alt="" width="640px;">
     </div>
   </div>
+  
   <hr>
   <div class="container">
 <center>At TechnoKraft, we help our clients maintain visitors, communities, and the financial management system. Our goal is to make customer’s life more convenient and secure for residents in any housing community.</center>
@@ -151,74 +170,132 @@ and Financial module for your society. Limited offer*</center></h1>
 </div>
 
 
-<h1>boys</h1>
+<!-- below cards -->
+<center>Secure & Seamless Visitor Entry<center>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                
-            
-
-
-        <div >
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-                        @endif
-                    @endauth
+<div class="card">
+  
+  <div class="card-body">
+  <center>  
+  <div class="containercss">
+        <div class="cardcss">
+            <div class="face face1">
+                <div class="content">
+                    <img src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/design_128.png?raw=true">
+                    <!-- <img src="images/welcome/11.jpg"> -->
+                    <h3>Security Management</h3>
                 </div>
-            @endif
-
-            
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    <p>Ensure that every person, package or vehicle entering the community is authorised by a resident. Effective security measures can be convenient, too!</p>
+                        <a href="#">Read More</a>
+                </div>
+            </div>
         </div>
-      
-    </body>
-</html>
+        <div class="cardcss">
+            <div class="face face1">
+                <div class="content">
+                    <img src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/code_128.png?raw=true">
+                    <h3>Community Management</h3>
+                    <!-- <img src="images/welcome/12.jpg">
+                    <h3>Visitor Management</h3> -->
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cum cumque minus iste veritatis provident at.</p>
+                        <a href="#">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="cardcss">
+            <div class="face face1">
+                <div class="content">
+                    <img src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/launch_128.png?raw=true">
+                    <h3>Financial Management</h3>
+                    <!-- <img src="images/welcome/fin.png"> -->
+                    
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cum cumque minus iste veritatis provident at.</p>
+                        <a href="#">Read More</a>
+                </div>
+            </div>
+        </div>
+</center>    
+    </div>
+    <hr> 
+
+<!-- section wala div open -->
+<div class="main" id="section2" style="background-color:#F4F2E6">
+  <br><br>
+    <h2>Schedule a Demo</h2>
+    <br>
+  <div class="align-items-center ml-auto mr-auto col-lg-9">
+    <form>
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="mt-3 mt-3 form-group">
+                <input type="text" class="form-control" placeholder="Your name">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="mt-3 mt-3 form-group">
+                    <input type="text" class="form-control" placeholder="Your Role">
+                </div>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-lg-6 col-md-6">
+                <div class="mt-3 mt-3 form-group">
+                    <input type="text" class="form-control" placeholder="Email ID">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6"">
+                <div class="mt-3 mt-3 form-group">
+                    <input type="text" class="form-control" placeholder="Phone No.">
+                </div>
+            </div>
+        </div>    
+        <div class="d-flex-justify-content-center">
+            <div class="col-lg-6">
+                <div class="mt-3  ">
+                    <input type="text" class="form-control" placeholder="Your City">
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex-justify-content-center">
+            <div class="col-lg-6">
+                <div class="mt-3  ">
+                <a href="#section2"><button type="button" class="buttoncolor" style="margin:5px; width:210px" class="btn btn-primary ">Submit</button></a>
+                </div>
+            </div>
+        </div>
+    </form>
+  </div>
+</div>
+<!-- section wala div close -->
+
+<!-- last div -->
+<div class="main" id="lastdiv">
+  <h2>Section 2</h2>
+  <a href="#section1">Click Me to Smooth Scroll to Section 1 Above</a>
+</div>
+<!-- last div -->
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+

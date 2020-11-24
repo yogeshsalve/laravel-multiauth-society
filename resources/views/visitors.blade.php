@@ -32,9 +32,15 @@
   <!-- <label for="inputFrom">From</label> -->
   <input type="text" class="form-control" name="visit_from" id="visit_from" placeholder="Coming From">
 </div>
+
 <div class="form-group col-md-6">
   <!-- <label for="inputTo">Visitng To</label> -->
-  <input type="text" class="form-control" name="visit_to" id="visit_to" placeholder="Visiting To">
+  <!-- <input type="text" class="form-control" name="visit_to" id="visit_to" placeholder="Visiting To"> -->
+  <select id="visit_to" class="form-control" name="visit_to">
+  @foreach($users as $user)
+<option>{{$user['flat_no']}}&nbsp;{{$user['name']}}</option>
+  @endforeach
+</select>
 </div>
 </div>
 
@@ -75,13 +81,33 @@
 
 
 
-  </div>
+  </div></div>
+<!-- <br><br>
+  <table border="1">
+<tr>
+<th>Id</td>
+<th>Name</th>
+<th>email</th>
+<th>flat no</th>
+<th>Contact No</th>
 
-  <!-- <div class="form-row">
-  <button type="submit" class="btn btn-primary float-right">Create Entry</button>
-  </div> -->
+
+</tr>
+@foreach($users as $user)
+
+<tr>
+<td>{{$user['id']}}</td>
+<td>{{$user['name']}}</td>
+<td>{{$user['email']}}</td>
+<td>{{$user['flat_no']}}</td>
+<td>{{$user['contact_no']}}</td>
 
 
-</div>
+</tr>
+@endforeach
+</table> -->
+
+
+
 </body>
 </html>

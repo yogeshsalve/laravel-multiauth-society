@@ -104,39 +104,7 @@
                             </div> -->
   <!-- <br> -->
                        <!-- table      -->
-<div class="table-responsive text-nowrap">                      
-<table class="table table-hover" border="1">
 
-<center><h4>Todays Visitors</center></h4>
-
-<tr>
-<th class="thcolor" scope="col">Id</td>
-<th class="thcolor" scope="col">Visitors Name</th>
-<!-- <th>Visiting From</th> -->
-<th class="thcolor" scope="col">Visiting To</th>
-<!-- <th>Contact No</th> -->
-<th class="thcolor" scope="col">Vehicle No</th>
-<!-- <th>Entry Time</th> -->
-<!-- <th>Exit Time</th> -->
-
-</tr>
-@foreach($visitors as $visitor)
-
-<tr>
-<td>{{$visitor['visitor_id']}}</td>
-<td>{{$visitor['visitor_name']}}</td>
-<!-- <td>{{$visitor['visit_from']}}</td> -->
-<td>{{$visitor['visit_to']}}</td>
-<!-- <td>{{$visitor['visitor_contact']}}</td> -->
-<td>{{$visitor['visitor_vehicle_no']}}</td>
-<!-- <td>{{$visitor['Entry_time']}}</td> -->
-<!-- <td>{{$visitor['Exit_time']}}</td> -->
-
-</tr>
-@endforeach
-  
-</table>
-</div>
   
   
                        <!-- table -->

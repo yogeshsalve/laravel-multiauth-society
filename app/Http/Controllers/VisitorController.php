@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\visitor;
+use App\Models\User;
 
 class VisitorController extends Controller
 {
@@ -38,8 +39,12 @@ class VisitorController extends Controller
     public function show1()
     {
     	
-        $data= visitor::all();
-        return view('home',['visitors'=>$data]);
+        $data= User::all();
+        return view('visitors',['users'=>$data]);
+        
+
+        
+
     }
 
     

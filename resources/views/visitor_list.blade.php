@@ -46,7 +46,11 @@
 </table>
 
 
-
+<select id="visit_to" class="form-control" name="visit_to">
+    @foreach($visitors as $visitor)
+    <option>{{$visitor['visitor_name']}}</option>
+    @endforeach
+  </select>
 
 
 

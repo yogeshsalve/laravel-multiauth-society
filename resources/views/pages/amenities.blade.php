@@ -68,12 +68,12 @@
         <div class="row">
           <div class="col-sm-3">
             <div class="card border-primary mb-3" style="max-width: 18rem;">
-            <img src="/images/gym1.png" class="card-img-top" height="200" alt="...">
+            <img src="/images/gym.png" class="card-img-top" height="200" alt="...">
             
             <div class="card-body">
             <h3 class="card-title">Gymnasium</h3>
             <!-- <p class="card-text">To book your gym slot Click on below button</p> -->
-            <a href="#" class="btn btn-primary">Click to Book your Slot</a>
+            <a href="/gym" class="btn btn-primary">Click to Book your Slot</a>
             </div>
             </div>
           </div>
@@ -91,7 +91,7 @@
 
           <div class="col-sm-3">
             <div class="card border-primary mb-3" style="max-width: 18rem;">
-            <img src="/images/tennis.png" class="card-img-top" height="200" alt="...">
+            <img src="/images/tennis.jpg" class="card-img-top" height="200" alt="...">
             <div class="card-body">
             <h3 class="card-title">Tennis Court</h3>
             <!-- <p class="card-text">To book your gym slot Click on below button</p> -->
