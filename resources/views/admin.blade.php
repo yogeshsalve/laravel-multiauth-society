@@ -16,6 +16,7 @@
 <body>
 @section('content')
 <div >
+
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <a class="navbar-brand" href="">Admin Dashboard</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -75,10 +76,10 @@
 
               <div class="card">
                 <div class="row">
-                  <div class="col-sm-6">
+                  <div class="col-sm-6 ">
                     <div class="card">
-                      <div class="card-body">
-                        <h5 class="card-title">Visitor</h5>
+                      <div class="card-body"><br>
+                        <h5 class="card-title" align="center"><b>Todays Visitors</b></h5>
         
         <!-- 
                         <div class="container">
@@ -90,8 +91,52 @@
                          </div>
                         </div> -->
 
-                        <p class="card-text">you are a normal user below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+
+                        <table border="1" class="table">
+<tr>
+<th>Id</td>
+<th>Visitors Name</th>
+<th>Visiting From</th>
+<th>Visiting To</th>
+<th>Contact No</th>
+<!-- <th>Vehicle No</th>
+<th>Entry Time</th>
+<th>Exit Time</th> -->
+
+</tr>
+@foreach($visitors as $visitor)
+
+<tr>
+<td>{{$visitor['visitor_id']}}</td>
+<td>{{$visitor['visitor_name']}}</td>
+<td>{{$visitor['visit_from']}}</td>
+<td>{{$visitor['visit_to']}}</td>
+<td>{{$visitor['visitor_contact']}}</td>
+<!-- <td>{{$visitor['visitor_vehicle_no']}}</td>
+<td>{{$visitor['Entry_time']}}</td>
+<td>{{$visitor['Exit_time']}}</td> -->
+
+</tr>
+@endforeach
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                       
                       </div>
                     </div>
                   </div>

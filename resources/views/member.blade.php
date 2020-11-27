@@ -1,23 +1,46 @@
 @extends('layouts.auth')
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User Dashboard</title>
 
-<style>
-  .card-header{
-        height: 40px;
-   }
-   html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-</style>
-
+    <style>
+    html,body{
+        max-width:100%;
+        overflow-x:hidden;
+    }
+    /* .maindiv{
+        padding-top: -0.5rem;
+    } */
+    .navbar-default{
+    background-color:#0f1442;
+    border-color: white;
+  }
+  .card-color{
+    background-color:#F4F6F9;
+    border-color: white;
+  }
+  .thcolor{
+    background-color: #0f1442;
+    color:white;
+  }
+  .table-responsive{
+    max-height:350px;
+  }
+  /* .box{
+    background-color:#fbf2fc;
+  } */
+    </style>
 </head>
 <body>
 @section('content')
-<!-- <div >
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="">Staff Dashboard</a>
+
+<!-- navbar -->
+<div>
+  <nav class="navbar fixed-top navbar-default navbar-expand-lg navbar-dark ">
+  <a class="navbar-brand" href="">Society</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -25,85 +48,210 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/maintable">Maintenance List</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="/flats">Flats Management</a>
+        <a class="nav-link" href="/maintenance">Pay Maintenance</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="/evemeets">Events and Meetings</a>
+        <a class="nav-link" href="/household">Household</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/amenities">Amenities</a>
       </li>
      
       <li class="nav-item">
-        <a class="nav-link" href="/accounts">Account Entry and Financial State</a>
+        <a class="nav-link" href="/parking">Parking</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/documents">Upload Documents</a>
+        <a class="nav-link" href="/complaints">Complaints</a>
       </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="/chat">Chat</a>
-      </li>
-  
-    </ul>
-    <ul class="navbar-nav ml-auto">
+     
+    
+    
     <li class="nav-item">
-      <a class="nav-link" href="/contact">Contact</a>
+      <a class="nav-link" href="/contactus">Contact Us</a>
     </li>
     </ul>
+    <ul class="navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+                       <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{__(Auth::user()->name)}} <span class="caret"></span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
   </div>
   </nav>
-</div> -->
-
 <!-- navbar -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" style="margin-top:100px;">
-                <a class="navbar-brand" href="#">
-    <img src="/images/logo1.png" width="30" height="30" class="d-inline-block align-top" alt="">
-    TECHNOKRAFT
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="visitors">Visitor Management<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Daily Staff & Service</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Child Security</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Delivery Management</a>
-      </li>
-      
-      
-    </ul>
-    
-   
-    
+
+<!-- card -->
+<div class="card">
+  <div class="card-header">
+    Featured
   </div>
-</nav>
-<!-- navbar -->
-<!-- first div -->
+  <div class="card-body card-color">
+    
 
-<!-- first div -->
+  <div class="row">
+  <div class="col-sm-6">
+    <div class="card" >
+    <!-- style="height:24rem;" -->
+      <div class="card-body shadow p-3  rounded">
+        <h5 class="card-title" align="center"> Visitors Entry Form</h5>
+        @if(Session::get('status'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+{{Session::get('status')}}
+<button type="button" class="close" data-dismiss="alert" aria-label="close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+@endif      
+
+
+
+ <div class="container">
+ 
+
+  <form action="member" method="POST">
+  @csrf
+  <div class="form-group">
+    <!-- <label for="inputName">Name</label> -->
+    <input type="text" class="form-control" name="visitor_name" id="visitor_name" placeholder="Enter Name">
+  </div>
+
+<div class="form-row"> 
+<div class="form-group col-md-6">
+  <!-- <label for="inputFrom">From</label> -->
+  <input type="text" class="form-control" name="visit_from" id="visit_from" placeholder="Coming From">
+</div>
+
+<div class="form-group col-md-6">
+  <!-- <label for="inputTo">Visitng To</label> -->
+  <!-- <input type="text" class="form-control" name="visit_to" id="visit_to" placeholder="Visiting To"> -->
+  <select id="visit_to" class="form-control" name="visit_to">
+ 
+</select>
+</div>
+</div>
+
+<div class="form-row"> 
+<div class="form-group col-md-6">
+  <!-- <label for="inputFrom">From</label> -->
+  <input type="text" class="form-control" name="visitor_contact" id="visitor_contact" placeholder="Contact No." pattern="[1-9]{1}[0-9]{9}">
+</div>
+<div class="form-group col-md-6">
+  <!-- <label for="inputTo">Visitng To</label> -->
+  <input type="text" class="form-control" name="visitor_vehicle_no" id="visitor_vehicle_no" placeholder="Vehicle No.">
+</div>
+</div>
+
+<div class="form-row"> 
+<div class="form-group col-md-6">
+  <!-- <label for="inputFrom">From</label> -->
+  <input type="datetime-local" class="form-control" name="Entry_time" id="Entry_time">
+  <!-- <input type="date" class="form-control" name="Entry_time" id="Entry_time" placeholder="In Time"> -->
+</div>
+<div class="form-group col-md-6">
+  <!-- <label for="inputTo">Visitng To</label> -->
+  <input type="date" class="form-control" name="Exit_time" id="Exit_time" placeholder="Out Time">
+</div>
+</div>
+
+
+  
+  
+    
+<!-- <div class="form-row">  -->
+  <button type="submit" class="btn btn-primary float-left">Back</button>
+  <button type="submit" class="btn btn-primary float-right">Create Entry</button>
+  <!-- </div> -->
+  <br>
+</form>
+
+
+
+
+  </div>
+
+
+
+
+      </div>
+      </div>
+    </div>
+  
+
+ 
+  <div class="col-sm-6">
+    <div class="card">
+    <!-- style="height:24rem;" -->
+      <div class="card-body shadow p-3  rounded">
+        <!-- <h5 class="card-title">Notice</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a> -->
+<div class="table-responsive">
+        <table border="1" class="table">
+<tr>
+<th class="thcolor">Id</td>
+<th class="thcolor">Visitors Name</th>
+<th class="thcolor">Visiting From</th>
+<th class="thcolor">Visiting To</th>
+<th class="thcolor">Contact No</th>
+<th class="thcolor">Vehicle No</th>
+<th class="thcolor">Entry Time</th>
+<th class="thcolor">Exit Time</th>
+
+</tr>
+@foreach($visitors as $visitor)
+
+<tr>
+<td>{{$visitor['visitor_id']}}</td>
+<td>{{$visitor['visitor_name']}}</td>
+<td>{{$visitor['visit_from']}}</td>
+<td>{{$visitor['visit_to']}}</td>
+<td>{{$visitor['visitor_contact']}}</td>
+<td>{{$visitor['visitor_vehicle_no']}}</td>
+<td>{{$visitor['Entry_time']}}</td>
+<td>{{$visitor['Exit_time']}}</td>
+
+</tr>
+@endforeach
+
+</table>
+</div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+  
+ 
+  
+  </div>
+</div>
+
+
+
+
+
+
+
 @endsection
 </body>
 </html>
-
-                    <!-- @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }} -->
-

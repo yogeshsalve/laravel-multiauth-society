@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\visitor;
 use App\Models\User;
+use Carbon\Carbon;
+use session;
+
 
 class VisitorController extends Controller
 {
@@ -24,8 +28,8 @@ class VisitorController extends Controller
         $visitor->Entry_time=$request->Entry_time;
         $visitor->Exit_time=$request->Exit_time;
         $visitor->save();
-        $request->Session()->flash('status','entry Submitted successfully');
-    	return redirect('/visitor_list');
+        $request->session()->flash('status','entry Submitted successfully');
+        return redirect('/member');
         
     }
 
@@ -41,11 +45,41 @@ class VisitorController extends Controller
     	
         $data= User::all();
         return view('visitors',['users'=>$data]);
-        
-
-        
-
     }
 
+    // public function showvisitors()
+    // {
+    	
+    //     $data= visitor::all();
+    //     return view('member',['visitors'=>$data]);
+    // }
+
+
+
+    public function display()
+    {
+        // return DB::table('visitors')
+        // ->where('visitor_id',1 )
+        // ->get();
+        
+        $data= visitor::all()
+        ->where('Exit_time',  '2020-11-25');
+        return view('admin',['visitors'=>$data]);
+    }
+    public function displayonhome()
+    {
+               
+        $data= visitor::all();
+        // ->where('Exit_time',  '2020-11-25');
+        return view('home',['visitors'=>$data]);
+    }
+
+    public function displayonmember()
+    {
+               
+        $data= visitor::all()
+        ->where('Exit_time',  '2020-11-26');
+        return view('member',['visitors'=>$data]);
+    }
     
 }

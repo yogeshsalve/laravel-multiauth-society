@@ -19,16 +19,20 @@
     border-color: white;
   }
   .card-color{
-    background-color:#6e7799;
+    background-color:#F4F6F9;
     border-color: white;
   }
   .thcolor{
     background-color: #0f1442;
     color:white;
   }
+  .table-responsive{
+    max-height:350px;
+  }
   /* .box{
     background-color:#fbf2fc;
   } */
+
     </style>
 </head>
 <body>
@@ -36,7 +40,7 @@
 
 <!-- navbar -->
 <div>
-  <nav class="navbar navbar-default navbar-expand-lg navbar-dark ">
+  <nav class="navbar fixed-top navbar-default navbar-expand-lg navbar-dark ">
   <a class="navbar-brand" href="">Society</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -66,94 +70,117 @@
         <a class="nav-link" href="/complaints">Complaints</a>
       </li>
      
-    </ul>
-    <ul class="navbar-nav ml-auto">
+    
+    
     <li class="nav-item">
       <a class="nav-link" href="/contactus">Contact Us</a>
     </li>
     </ul>
+    <ul class="navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+                       <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{__(Auth::user()->name)}} <span class="caret"></span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
   </div>
   </nav>
 <!-- navbar -->
 
-<div>
-  <div class="row justify-content-center">
-    <div class="col-lg-12">
-      <div class="card">
-        <!-- <div class="card-header">{{ __('Dashboard') }}</div> -->
-          <div class="card-body card-color mb-3">
-            @if (session('status'))
-            <div class="alert alert-success" role="alert">
-              {{ session('status') }}
-            </div>
-            @endif
-            <h5 class="text-white">Welcome {{ __( Auth::user()->name) }}</h5>
+<div class="card">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body card-color">
+    
 
-              <div class="card ">
-                <div class="row">
-                  <div class="col-sm-6">
-                    <div class="card ">
-                      <div class="card-body box">
-                        <h5 class="card-title"></h5>
+  <div class="row">
+  <div class="col-sm-8">
+    <div class="card" style="height:24rem;">
+      <div class="card-body shadow p-3  rounded">
+        <h5 class="card-title">Todays Visitors</h5>
         
-        
-                        <div class="container " style="overflow-x:auto;">
-                          <!-- <div class="card"> -->
-                            <!-- <div class="card-header text-white" style="background-color: #1d5bb8;">
-                            <h4><center>Todays Visitors</center></h4>
-                            </div> -->
-  <!-- <br> -->
-                       <!-- table      -->
 
-  
-  
-                       <!-- table -->
-                         <!-- </div> -->
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="card">
-                      <div class="card-body">
-                      <h5 class="card-title">Events, Notices and Meetings</h5>
-                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+        <div class="table-responsive">
+        <table border="1" class="table">
+<tr>
+<th>Id</td>
+<!-- <th>Visitors Name</th> -->
+<th>Visiting From</th>
+<th>Visiting To</th>
+<!-- <th>Contact No</th> -->
+<th>Vehicle No</th>
+<th>Entry Time</th>
+<th>Exit Time</th>
 
-                <div class="card">
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <div class="card">
-                        <div class="card-body">
-                          <h5 class="card-title">Responsibilities</h5>
-                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="card">
-                        <div class="card-body">
-                          <h5 class="card-title">Staff Status</h5>
-                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+</tr>
+@foreach($visitors as $visitor)
+<?php
+if(strtotime(date('y-m-d'))<strtotime($visitor->Entry_time))
+{
+  ?>
+  <tr>
+<td>{{$visitor['visitor_id']}}</td>
+<!-- <td>{{$visitor['visitor_name']}}</td> -->
+<td>{{$visitor['visit_from']}}</td>
+<td>{{$visitor['visit_to']}}</td>
+<!-- <td>{{$visitor['visitor_contact']}}</td> -->
+<td>{{$visitor['visitor_vehicle_no']}}</td>
+<td>{{$visitor['Entry_time']}}</td>
+<td>{{$visitor['Exit_time']}}</td>
 
-          </div>
-        </div>
+</tr>
+
+<?php
+
+
+}?>
+
+
+
+
+@endforeach
+
+</table>
+</div>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card" style="height:24rem;">
+      <div class="card-body shadow p-3  rounded">
+        <h5 class="card-title">Notice</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
     </div>
   </div>
 </div>
+  
+ 
+  
+  </div>
+</div>
+
+
+
+
+
+
 
 @endsection
 </body>

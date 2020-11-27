@@ -21,8 +21,12 @@ use App\Http\Controllers\contactusController;
 use App\Http\Controllers\VisitorController;
 use App\Http\Controllers\LoginDashboardController;
 use App\Http\Controllers\gymcontroller;
+use App\Http\Controllers\DemoController;
 
 Route::view('/', 'welcome');
+Route::post('/welcome',[DemoController::class, 'addData']);
+
+
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -40,11 +44,15 @@ Route::post('/register/member', [RegisterController::class,'createmember']);
 
 Route::group(['middleware' => 'auth:member'], function () {
     Route::view('/member', 'member');
+    Route::get('member', [VisitorController::class, 'displayonmember']);
 });
 
 Route::group(['middleware' => 'auth:admin'], function () {
     
     Route::view('/admin', 'admin');
+    Route::get('admin', [VisitorController::class, 'display']);
+
+    
 });
 
 Route::get('logout', [LoginController::class,'logout']);
@@ -62,12 +70,15 @@ Route::get('/logindashboard', [LoginDashboardController::class, 'logindashboard'
 Route::post('contactus', [contactusController::class, 'addContact']);
 
 Route::get('visitors', [VisitorController::class, 'visitors']); 
-Route::post('visitors',[VisitorController::class, 'addData']);
+// Route::post('visitors',[VisitorController::class, 'addData']);
+Route::post('member',[VisitorController::class, 'addData']);
+
 Route::get('visitor_list',[VisitorController::class, 'show']);
+// Route::get('member',[VisitorController::class, 'showvisitors']);
 
 Route::get('visitors',[VisitorController::class, 'show1']);
 
-
+//Route::post('welcome',[ScheduleDemo::class, 'addDemo']);
 
 // Route::get('home',[VisitorController::class, 'show1']);
 
@@ -78,3 +89,7 @@ Route::view('/gym', 'gym');
  Route::post('/gym', [gymcontroller::class, 'addData']);
  Route::get('/gym',[gymcontroller::class, 'show2']);
 
+
+ Route::view('/security-management', 'security-management');
+
+ Route::get('/home', [VisitorController::class, 'displayonhome']);

@@ -189,7 +189,7 @@ and Financial module for your society. Limited offer*</center></h1>
             <div class="face face2">
                 <div class="content">
                     <p>Ensure that every person, package or vehicle entering the community is authorised by a resident. Effective security measures can be convenient, too!</p>
-                        <a href="#">Read More</a>
+                        <a href="security-management">Read More</a>
                 </div>
             </div>
         </div>
@@ -235,35 +235,62 @@ and Financial module for your society. Limited offer*</center></h1>
     <h2>Schedule a Demo</h2>
     <br>
   <div class="align-items-center ml-auto mr-auto col-lg-9">
-    <form>
+    <form action="welcome" method="POST">
+    @csrf
         <div class="row">
             <div class="col-lg-6 col-md-6">
                 <div class="mt-3 mt-3 form-group">
-                <input type="text" class="form-control" placeholder="Your name">
+                <input id="name" type="text" class="form-control" placeholder="Your name" name="name">
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="mt-3 mt-3 form-group">
-                    <input type="text" class="form-control" placeholder="Your Role">
+                    <!-- <input type="text" class="form-control" placeholder="Your Role"> -->
+                    <select id="role" class="form-control"  placeholder="Your Role" name="role">
+                    
+                    <option value="Committee Member">Committee Member</option>
+                    <option value="Resident">Resident</option>
+                    <option value="Security">Security Agency</option>
+                    <option value="Builder">Builder</option>
+                    <option value="Others">Others</option>
+                    </select>
                 </div>
             </div>
         </div>
         <div class="row ">
             <div class="col-lg-6 col-md-6">
                 <div class="mt-3 mt-3 form-group">
-                    <input type="text" class="form-control" placeholder="Email ID">
+                    <input type="text"id="email" class="form-control" placeholder="Email ID" name="email">
                 </div>
             </div>
             <div class="col-lg-6 col-md-6"">
                 <div class="mt-3 mt-3 form-group">
-                    <input type="text" class="form-control" placeholder="Phone No.">
+                    <input type="text" id="phone" class="form-control" placeholder="Phone No." name="phone">
                 </div>
             </div>
         </div>    
         <div class="d-flex-justify-content-center">
             <div class="col-lg-6">
                 <div class="mt-3  ">
-                    <input type="text" class="form-control" placeholder="Your City">
+                    <!-- <input type="text" class="form-control" placeholder="Your City"> -->
+
+                    <select id="location" class="form-control"  placeholder="Your City" name="location">
+                    <option value="Bangalore ">Bangalore</option>
+                    <option value=" Mumbai">Mumbai</option>
+                    <option value="Delhi-NCR ">Delhi-NCR</option>
+                    <option value="Chennai ">Chennai</option>
+                    <option value=" Hyderabad">Hyderabad</option>
+                    <option value="Kolkata ">Kolkata</option>
+                    <option value=" Kochi">Kochi</option>
+                    <option value=" Pune">Pune</option>
+                    <option value="Ahmedabad ">Ahmedabad</option>
+                    <option value="Chandigarh ">Chandigarh</option>
+                    <option value="Jaipur ">Jaipur</option>
+                    <option value="Lucknow">Lucknow</option>
+                    <option value="Surat ">Surat</option>
+                    <option value=" Raipur">Raipur</option>
+                    <option value=" Others">Others</option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -271,7 +298,7 @@ and Financial module for your society. Limited offer*</center></h1>
         <div class="d-flex-justify-content-center">
             <div class="col-lg-6">
                 <div class="mt-3  ">
-                <a href="#section2"><button type="button" class="buttoncolor" style="margin:5px; width:210px" class="btn btn-primary ">Submit</button></a>
+                <button type="submit" class="buttoncolor" style="margin:5px; width:210px" class="btn btn-primary">Submit</button>
                 </div>
             </div>
         </div>
