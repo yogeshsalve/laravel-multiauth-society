@@ -22,6 +22,9 @@ use App\Http\Controllers\VisitorController;
 use App\Http\Controllers\LoginDashboardController;
 use App\Http\Controllers\gymcontroller;
 use App\Http\Controllers\DemoController;
+use App\Http\Controllers\MaintenanceController;
+use App\Http\Controllers\security\ForgotPassword;
+
 
 Route::view('/', 'welcome');
 Route::post('/welcome',[DemoController::class, 'addData']);
@@ -45,13 +48,21 @@ Route::post('/register/member', [RegisterController::class,'createmember']);
 Route::group(['middleware' => 'auth:member'], function () {
     Route::view('/member', 'member');
     Route::get('member', [VisitorController::class, 'displayonmember']);
+    Route::get('visitor_list',[VisitorController::class, 'show']);
+    
+    
+
 });
 
 Route::group(['middleware' => 'auth:admin'], function () {
     
     Route::view('/admin', 'admin');
     Route::get('admin', [VisitorController::class, 'display']);
-
+    
+    Route::view('/admin-maintenance', 'admin-pages\admin-maintenance');
+    Route::view('/maintenance-entry', 'maintenance\maintenance-entry');
+    Route::get('maintenance-entry', [VisitorController::class, 'show_username']);
+    
     
 });
 
@@ -71,12 +82,17 @@ Route::post('contactus', [contactusController::class, 'addContact']);
 
 Route::get('visitors', [VisitorController::class, 'visitors']); 
 // Route::post('visitors',[VisitorController::class, 'addData']);
+
 Route::post('member',[VisitorController::class, 'addData']);
 
-Route::get('visitor_list',[VisitorController::class, 'show']);
+
+
+
+
 // Route::get('member',[VisitorController::class, 'showvisitors']);
 
-Route::get('visitors',[VisitorController::class, 'show1']);
+Route::get('visitors',[VisitorController::class, 'show_flatanduser']);
+
 
 //Route::post('welcome',[ScheduleDemo::class, 'addDemo']);
 
@@ -93,3 +109,8 @@ Route::view('/gym', 'gym');
  Route::view('/security-management', 'security-management');
 
  Route::get('/home', [VisitorController::class, 'displayonhome']);
+
+//  Route::get('/forgot_password',[ForgotPassword::class, 'forgot' ]);
+//  Route::post('/forgot_password',[ForgotPassword::class, 'password' ]);
+
+ Route::post('/maintenance-entry',[MaintenanceController::class, 'addData']);

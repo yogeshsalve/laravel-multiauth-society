@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- add icon link -->
         <link rel = "icon" href =  
 "/images/logo2.png" 
@@ -70,29 +71,68 @@ $(document).ready(function(){
             
                
                 <!-- navbar -->
-                <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+                <nav class="navbar  navbar-expand-lg navbar-dark bg-dark">
                 <a class="navbar-brand" href="#">
     <img src="/images/logo1.png" width="30" height="30" class="d-inline-block align-top" alt="">
-    TECHNOKRAFT
+    SOFTCARE
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Data Privacy & Protection<span class="sr-only">(current)</span></a>
+      <li><a href=""><i class="fa fa-user-secret" aria-hidden="true"></i>&nbsp;Data Privacy & Protection</a>
+        <ul class="dropdown">
+        <li><a href="#">Data Protection with GDPR</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Data Privacy FAQs</a></li>
+        </ul>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Products</a>
+
+      <li><a href=""><i class="fa fa-product-hunt" aria-hidden="true"></i>&nbsp;Our Products</a>
+        <ul class="dropdown">
+        <li><a href="#">Security Management</a></li>
+        <li><a href="#">Community Management</a></li>
+        <li><a href="#">Financial Management</a></li>
+        </ul>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+
+      <li><a href=""><i class="fa fa-list-alt" aria-hidden="true"></i>&nbsp;Complete Features List</a>
+        <ul class="dropdown">
+        
+        <li><a href="#">Visitor Management</a></li>
+        <li><a href="#">Daily Staff Management</a></li>
+        <li><a href="#">Helpdesk / Safety management</a></li>
+        <li><a href="#">Communication Management</a></li>
+        <li><a href="#">Complaint management System</a></li>
+        <li><a href="#">Amenities Management</a></li>
+        <li><a href="#">Accounts and billing</a></li>
+        <li><a href="#">Maintenance & utility bill payments</a></li>
+        </ul>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Company</a>
+
+      <li><a href=""><i class="fa fa-building" aria-hidden="true">&nbsp;</i>About Company</a>
+        <ul class="dropdown">
+        
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Refer a Society</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Why MySociety</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">FAQs</a></li>
+        </ul>
       </li>
-      <li class="nav-item dropdown">
+            
+      <li><a href="#"><i class="fa fa-fw fa-user" aria-hidden="true"></i>Login</a>
+                  <ul class="dropdown">
+                  <li><a href="/login">User</a></li>
+                  <li><a href="/login/member">Staff</a></li>
+                  <li><a href="/login/admin">Admin</a></li>
+                  </ul>
+                </li>
+      
+      <!-- <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Login
         </a>
@@ -102,12 +142,12 @@ $(document).ready(function(){
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/login/admin">Admin</a>
         </div>
-      </li>
+      </li> -->
       
     </ul>
     <ul class="navbar-nav ml-auto">
-    <li class="nav-item">
-        <button><a  href="tel:+91-9422082780">Call Now</a></button>
+    <li>
+        <a  href="tel:+91-8446915849"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;8446915849</a>
     </li>
 </ul>
    
@@ -124,17 +164,16 @@ $(document).ready(function(){
         <div class="conntainer ml-10"> 
             <br>
             <div class="typewriter"> 
-            <h1 class="font-weight-bold"><center>TECHNOKRAFT SOCIETY</center></h1>
+            <h1 class="font-weight-bold"><center>SOFTCARE SOCIETY</center></h1>
             <hr>
             </div> 
             <br>       
-            <h1 class="font-weight-bold">Housing Societies now uses our app to manage their </h1>
-            <h2 class="font-weight-bold"><ul>
-                <li>Accounts</li>
-                <li>Complaints</li>
-                <li>Visitors</li>
-            </ul>
-            </h2>
+            <h1 class="font-weight-bold">Housing Societies now uses our app to manage their... </h1>
+            <h4 class="font-weight-bold">
+              
+                Accounts, Complaints & Visitors
+            
+            </h4>
 
             
             <!-- <a class="typewriter" data-period="2000" data-type="[&quot;visitors&quot;,&quot;deliveries&quot;,&quot;staff &quot;,&quot;accounts&quot;,&quot;complaints&quot;]"><span classname="wrap">deliveries</span></a> -->
@@ -308,9 +347,60 @@ and Financial module for your society. Limited offer*</center></h1>
 <!-- section wala div close -->
 
 <!-- last div -->
-<div class="main" id="lastdiv">
-  <h2>Section 2</h2>
-  <a href="#section1">Click Me to Smooth Scroll to Section 1 Above</a>
+<div class="main" id="section2" style="background-color:#53565A;height: 250px; ">
+   
+<table class="table" style="color:#D0D0D0; margin-top: 0px;">
+<tr>
+<td>
+  <pre style="color:#D0D0D0; font-family:'Comic Sans Ms';">
+        Features
+        <a href="#">Visitor Management</a>
+        <a href="#">Daily Staff & Service</a>
+        <a href="#">Child Security</a>
+        <a href="#">Delivery Management</a>
+        <a href="#">Accounts and Payments</a>
+  </td>
+<td>
+  <pre style="color:#D0D0D0; font-family:'Comic Sans Ms';">
+    <a href="#">Amenities' Booking</a>
+    <a href="#">Multi-Property Management</a>
+    <a href="#">Communication Management</a>
+    <a href="#">Helpdesk</a>
+  </td>
+
+<td>
+<pre style="color:#D0D0D0; font-family:'Comic Sans Ms';">
+    Company
+    <a href="#">About us</a>
+    <a href="#">Careers</a>
+    <a href="#">Contact us</a>
+    <a href="#">Terms & conditions</a>
+    <a href="#">Responsible Disclosure</a>
+    <a href="#">Data Privacy</a>
+  </td>
+
+<td>
+  <pre style="color:#D0D0D0; font-family:'Comic Sans Ms';">
+  <a href="#">Why MySociety</a>
+  <a href="#">FAQs</a>
+  <a href="#">Blog</a>
+</td>
+
+<td>
+    <pre style="color:#D0D0D0; font-family:'Comic Sans Ms';">
+    Contact
+    Centre -PANVEL,
+    Shop NO.-A224,225,226,227,
+    Sai Arcade,above G.P.Parsik Bank
+    Behind Life Line Hospital,
+    Opp. S.T.Depot Panvel,Raigad,
+    Panvel-410 206,Maharashtra
+    Tel: 8446915849
+    Website: <a href="#">www.icajobgaruntee.com</a>
+  </pre>
+</td>
+</tr>
+</table>
 </div>
 <!-- last div -->
 

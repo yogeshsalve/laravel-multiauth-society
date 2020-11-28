@@ -30,6 +30,7 @@
     
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -91,11 +92,14 @@
                                     {{ __('Login') }}
                                 </button>
 
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                               
+                                <a class="btn btn-link" href="forgot_password">
+                                       {{ __('Forgot Your Password?') }}
                                     </a>
-                                @endif
+                                
+                                    <a class="btn btn-link" href="register">
+                                       {{ __('Sign Up') }}
+                                    </a>
                             </div>
                         </div>
                     </form>

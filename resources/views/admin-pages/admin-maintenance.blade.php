@@ -49,14 +49,14 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/admin">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="">Manage Flats</a>
+        <a class="nav-link" href="/maintenance">Manage Flats</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="/household">Accounts</a>
+        <a class="nav-link" href="/household">Account</a>
       </li>
 
       <li class="nav-item">
@@ -72,10 +72,6 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/Reports">Complaints</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="">Upload Documents</a>
       </li>
      
       </ul>
@@ -114,51 +110,10 @@
   <div class="col-sm-8">
     <div class="card" style="height:30rem;">
       <div class="card-body shadow p-3  rounded">
-        <h5 class="card-title">Todays Visitors</h5>
+        <h5 class="card-title">Generate all society bills</h5>
         
 
-        <div class="table-responsive">
-        <table border="1" class="table">
-<tr>
-<th>Id</td>
-<!-- <th>Visitors Name</th> -->
-<th>Visiting From</th>
-<th>Visiting To</th>
-<!-- <th>Contact No</th> -->
-<th>Vehicle No</th>
-<th>Entry Time</th>
-<th>Exit Time</th>
-
-</tr>
-@foreach($visitors as $visitor)
-<?php
-if(strtotime(date('y-m-d'))<strtotime($visitor->Entry_time))
-{
-  ?>
-  <tr>
-<td>{{$visitor['visitor_id']}}</td>
-<!-- <td>{{$visitor['visitor_name']}}</td> -->
-<td>{{$visitor['visit_from']}}</td>
-<td>{{$visitor['visit_to']}}</td>
-<!-- <td>{{$visitor['visitor_contact']}}</td> -->
-<td>{{$visitor['visitor_vehicle_no']}}</td>
-<td>{{$visitor['Entry_time']}}</td>
-<td>{{$visitor['Exit_time']}}</td>
-
-</tr>
-
-<?php
-
-
-}?>
-
-
-
-
-@endforeach
-
-</table>
-</div>
+        <button><a href="/maintenance-entry">maintenance</a></button>
 
       </div>
     </div>
