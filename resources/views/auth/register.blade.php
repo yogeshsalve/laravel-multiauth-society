@@ -17,6 +17,46 @@
                         @csrf
 
                         <div class="form-group row">
+                            <label for="society_id" class="col-md-4 col-form-label text-md-right">{{ __('Society_Id') }}</label>
+
+                            <div class="col-md-4">
+                                <input id="society_id" type="text" class="form-control @error('society_id') is-invalid @enderror" name="society_id" value="{{ old('society_id') }}" required autocomplete="society_id" autofocus>
+
+                                @error('society_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-2">
+                            <button type="button" class="btn btn-primary">Fetch</button>
+                            </div>
+                        </div>
+
+
+
+                         <div class="form-group row">
+                            <label for="society_name" class="col-md-4 col-form-label text-md-right">{{ __('Society_Name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="society_name" disabled type="text" class="form-control @error('society_name') is-invalid @enderror" name="society_name" value="{{ old('society_name') }}" required autocomplete="society_name" autofocus>
+
+                                @error('society_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">

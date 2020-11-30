@@ -123,7 +123,10 @@ $(document).ready(function(){
         <li><a href="#">FAQs</a></li>
         </ul>
       </li>
-            
+      <li>
+      
+      </li>   
+
       <li><a href="#"><i class="fa fa-fw fa-user" aria-hidden="true"></i>Login</a>
                   <ul class="dropdown">
                   <li><a href="/login">User</a></li>
@@ -147,7 +150,33 @@ $(document).ready(function(){
     </ul>
     <ul class="navbar-nav ml-auto">
     <li>
-        <a  href="tel:+91-8446915849"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;8446915849</a>
+        <!-- <a  href="tel:+91-8446915849"><i class="fa fa-phone" aria-hidden="true"></i>&nbsp;8446915849</a> -->
+        <button type="button" class="btn btn-warning"data-toggle="modal" data-target="#exampleModal">Enroll Your Society
+        </button>
+
+        <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
     </li>
 </ul>
    
@@ -227,7 +256,7 @@ and Financial module for your society. Limited offer*</center></h1>
             </div>
             <div class="face face2">
                 <div class="content">
-                    <p>Ensure that every person, package or vehicle entering the community is authorised by a resident. Effective security measures can be convenient, too!</p>
+                    <p>Security Management describes the set of policies and procedural controls that organizations implement to secure their informational assets.</p>
                         <a href="security-management">Read More</a>
                 </div>
             </div>
@@ -243,8 +272,8 @@ and Financial module for your society. Limited offer*</center></h1>
             </div>
             <div class="face face2">
                 <div class="content">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cum cumque minus iste veritatis provident at.</p>
-                        <a href="#">Read More</a>
+                    <p>Community Management ensures Support towards members to have a  lookout  to their issues and bestow them with solutions. This includes Chat forums,Complaint & Amenities. </p>
+                        <a href="community-management">Read More</a>
                 </div>
             </div>
         </div>
@@ -259,8 +288,8 @@ and Financial module for your society. Limited offer*</center></h1>
             </div>
             <div class="face face2">
                 <div class="content">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cum cumque minus iste veritatis provident at.</p>
-                        <a href="#">Read More</a>
+                    <p>Financial management refers to the strategic planning, organising and controlling of financial undertakings in an organisation, Deals with Accounts/Bills, & Maintenance.</p>
+                        <a href="financial-management">Read More</a>
                 </div>
             </div>
         </div>

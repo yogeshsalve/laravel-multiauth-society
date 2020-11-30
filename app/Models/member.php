@@ -12,7 +12,7 @@
         protected $guard = 'member';
 
         protected $fillable = [
-            'name', 'email','flat_no','contact_no', 'password',
+            'society_id','society_name','name', 'email','flat_no','contact_no', 'password',
         ];
 
         protected $hidden = [

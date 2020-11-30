@@ -48,9 +48,14 @@ Route::post('/register/member', [RegisterController::class,'createmember']);
 Route::group(['middleware' => 'auth:member'], function () {
     Route::view('/member', 'member');
     Route::get('member', [VisitorController::class, 'displayonmember']);
-    Route::get('visitor_list',[VisitorController::class, 'show']);
-    
-    
+    // Route::get('visitor_list',[VisitorController::class, 'show']);
+    Route::get('visitor_list', [VisitorController::class, 'tdate']);
+    Route::post('visitor_list', [VisitorController::class, 'tdate']);
+    Route::view('/staff_attendance', 'staff/staff_attendance');
+    Route::view('/staffattendance', 'staff/staffattendance');
+
+    Route::post('staff_attendance', [VisitorController::class, 'staff_attendance']);
+    Route::get('/staff_attendance', [VisitorController::class, 'staff_attendance_list']);
 
 });
 
@@ -106,7 +111,9 @@ Route::view('/gym', 'gym');
  Route::get('/gym',[gymcontroller::class, 'show2']);
 
 
- Route::view('/security-management', 'security-management');
+ Route::view('/security-management', 'welcome-pages/security-management');
+ Route::view('/financial-management', 'welcome-pages/financial-management');
+ Route::view('/community-management', 'welcome-pages/community-management');
 
  Route::get('/home', [VisitorController::class, 'displayonhome']);
 
@@ -114,3 +121,6 @@ Route::view('/gym', 'gym');
 //  Route::post('/forgot_password',[ForgotPassword::class, 'password' ]);
 
  Route::post('/maintenance-entry',[MaintenanceController::class, 'addData']);
+
+ Route::view('/enroll-society', 'society-enrollment/enroll-society');
+

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Session;
 use Nexmo\Laravel\Facade\Nexmo;
 use Illuminate\Support\Facades\DB;
 use App\Models\visitor;
+use App\Models\staffattendance;
 use App\Models\User;
 use Carbon\Carbon;
 // use session;
@@ -49,6 +50,21 @@ class VisitorController extends Controller
         return redirect('member');
         
     }
+
+    public function tdate( Request $request)
+    {
+
+    		
+    			
+    		
+    			$from=$request->date1;
+    			$to=$request->date2;
+    			$data = visitor::whereBetween('Exit_time',[$from,$to])->get();
+
+    	   		   return view('visitor_list',['data'=>$data ]);
+
+	}
+
 
     public function show()
     {
@@ -115,7 +131,25 @@ class VisitorController extends Controller
         
     }
 
- 
+    public function staff_attendance( Request $request)
+	{
+		$atd=new staffattendance ;
+        $atd->staff_name=$request->input('staff_name');
+        $atd->staff_intime=$request->input('staff_intime');
+        $atd->staff_outtime=$request->input('staff_outtime');
+        $atd->save();
+        
+		return redirect('staff_attendance');
+	}
+
+	public function staff_attendance_list()
+	{
+		$data=staffattendance::all();
+		return view('staff/staff_attendance',['data'=>$data ]);
+
+
+	}
+
 
 
 

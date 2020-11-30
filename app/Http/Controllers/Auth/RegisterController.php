@@ -59,6 +59,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            'society_id' => ['required', 'string', 'max:255'],
+            'society_name'=>['required', 'string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'flat_no' => ['required', 'string', 'max:255'],
@@ -91,6 +93,8 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
+            'society_id' => $data['society_id'],
+            'society_name' => $data['society_name'],
             'name' => $data['name'],
             'email' => $data['email'],
             'flat_no' => $data['flat_no'],
@@ -108,6 +112,8 @@ class RegisterController extends Controller
     {
         $this->validator($request->all())->validate();
         Admin::create([
+            'society_id' => $request->society_id,
+            'society_name' => $request->society_name,
             'name' => $request->name,
             'email' => $request->email,
             'flat_no' => $request->flat_no,
@@ -126,6 +132,8 @@ class RegisterController extends Controller
     {
         $this->validator($request->all())->validate();
         member::create([
+            'society_id' => $request->society_id,
+            'society_name' => $request->society_name,
             'name' => $request->name,
             'email' => $request->email,
             'flat_no' => $request->flat_no,

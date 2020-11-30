@@ -253,34 +253,56 @@
     
     <div class="card-body shadow p-3  rounded" style="height:24rem;">
       <h5 class="card-title" align="center"> Staff Entry Form</h5>
-          @if(Session::get('status'))
+          <!-- @if(Session::get('status'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
           {{Session::get('status')}}
           <button type="button" class="close" data-dismiss="alert" aria-label="close">
           <span aria-hidden="true">&times;</span>
           </button>
         </div>
-          @endif      
+          @endif       -->
         <div class="container"> 
-          <form action="member" method="POST">
-          @csrf
-            <div class="form-group">
-              <input type="text" class="form-control" name="visitor_name" id="visitor_name" placeholder="Enter Name">
-            </div>
+          
+        <form method="POST" action="member">
+		@csrf
+	
 
-            <div class="form-row"> 
-              <div class="form-group col-md-6">
-                <input type="datetime-local" class="form-control" name="Entry_time" id="Entry_time">
-              </div>
-              <div class="form-group col-md-6">
-                <input type="date" class="form-control" name="Exit_time" id="Exit_time" placeholder="Out Time">
-              </div>
-            </div>
+	<div class="col-md-12">
+		<label>Staff Name</label>
+		<input type="text" name="staff_name" class="form-control" placeholder="Staff Name">
+		
+	</div>
+  <div class="row">
+	<div class="col-md-6">
+		<label>In Time</label>
+		<input type="time" name="staff_intime" class="form-control" placeholder="In Time">
+		
 
-            <button type="submit" class="btn btn-primary float-left">Back</button>
-            <button type="submit" class="btn btn-primary float-right">Create Entry</button>
-            <br>
-          </form>
+	</div>
+  
+	<div class="col-md-6">
+		<label>Out Time</label>
+		<input type="time" name="staff_outtime" class="form-control" placeholder="Out Time">
+		
+
+	</div>
+  </div>
+
+	<br>
+	<div class="col-md-6">
+		<button type="submit" class="btn btn-primary" >Submit</button>
+
+		
+	</div>
+	
+</div>
+
+</form>
+
+
+
+
+
         </div>
       </div>
     </div>
