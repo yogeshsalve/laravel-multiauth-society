@@ -12,15 +12,21 @@
    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
 
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+    
 
 
 
 </head>
 <body>
+
 <div class="container">
-<h1 class="text-info text-center ">Todays visitors</h1>
-	
+<a href="member"><button>Back to visitor form</button></a>
+</div>
+
+
+<div class="container">
+<h1 class="text-info text-center ">List of Visitors</h1>
+	<br>
 	<form method="POST" action="visitor_list">
 		@csrf
 	

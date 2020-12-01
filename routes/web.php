@@ -22,6 +22,7 @@ use App\Http\Controllers\VisitorController;
 use App\Http\Controllers\LoginDashboardController;
 use App\Http\Controllers\gymcontroller;
 use App\Http\Controllers\DemoController;
+use App\Http\Controllers\AmenitiesController;
 use App\Http\Controllers\MaintenanceController;
 use App\Http\Controllers\security\ForgotPassword;
 
@@ -47,16 +48,17 @@ Route::post('/register/member', [RegisterController::class,'createmember']);
 
 Route::group(['middleware' => 'auth:member'], function () {
     Route::view('/member', 'member');
-    Route::get('member', [VisitorController::class, 'displayonmember']);
+    // Route::get('member', [VisitorController::class, 'displayonmember']);
     // Route::get('visitor_list',[VisitorController::class, 'show']);
     Route::get('visitor_list', [VisitorController::class, 'tdate']);
     Route::post('visitor_list', [VisitorController::class, 'tdate']);
     Route::view('/staff_attendance', 'staff/staff_attendance');
     Route::view('/staffattendance', 'staff/staffattendance');
-
+    Route::get('member', [VisitorController::class, 'show_flatusername']);
     Route::post('staff_attendance', [VisitorController::class, 'staff_attendance']);
     Route::get('/staff_attendance', [VisitorController::class, 'staff_attendance_list']);
 
+    Route::view('/staff-amenities', 'member-pages/staff-amenities');
 });
 
 Route::group(['middleware' => 'auth:admin'], function () {
@@ -106,9 +108,17 @@ Route::get('visitors',[VisitorController::class, 'show_flatanduser']);
 
 
 
-Route::view('/gym', 'gym');
- Route::post('/gym', [gymcontroller::class, 'addData']);
- Route::get('/gym',[gymcontroller::class, 'show2']);
+Route::view('/gym', 'amenities/gym');
+ Route::post('/gym', [AmenitiesController::class, 'addData']);
+ Route::get('/gym',[AmenitiesController::class, 'showgym']);
+
+ Route::view('/swim', 'amenities/swim');
+ Route::post('/swim', [AmenitiesController::class, 'addpoolData']);
+ Route::get('/swim',[AmenitiesController::class, 'showpooluser']);
+
+ Route::view('/playzone', 'amenities/playzone');
+ Route::post('/playzone', [AmenitiesController::class, 'addplayData']);
+ Route::get('/playzone',[AmenitiesController::class, 'showplayuser']);
 
 
  Route::view('/security-management', 'welcome-pages/security-management');

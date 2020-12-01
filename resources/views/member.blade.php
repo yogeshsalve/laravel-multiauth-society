@@ -59,7 +59,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="">Manage Amenities</a>
+        <a class="nav-link" href="staff-amenities">Manage Amenities</a>
       </li>
      
       <li class="nav-item">
@@ -145,49 +145,43 @@
 <!-- card -->
 <div class="card">
   <div class="card-body card-color">
-    
-
   <div class="row">
-  <div class="col-sm-6">
+  <div class="col-sm-12">
     <div class="card" >
-    
       <div class="card-body shadow p-3  rounded" style="height:24rem;">
         <h5 class="card-title" align="center"> Visitors Entry Form</h5>
         @if(Session::get('status'))
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-{{Session::get('status')}}
-<button type="button" class="close" data-dismiss="alert" aria-label="close">
-<span aria-hidden="true">&times;</span>
-</button>
-</div>
-@endif      
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          {{Session::get('status')}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        @endif      
 
 
 
- <div class="container">
- 
+        <div class="container">
+          <form action="member" method="POST">
+            @csrf
+            <div class="form-group">
+              <input type="text" class="form-control" name="visitor_name" id="visitor_name" placeholder="Enter Name">
+            </div>
 
-  <form action="member" method="POST">
-  @csrf
-  <div class="form-group">
-    <!-- <label for="inputName">Name</label> -->
-    <input type="text" class="form-control" name="visitor_name" id="visitor_name" placeholder="Enter Name">
-  </div>
+            <div class="form-row"> 
+              <div class="form-group col-md-6">
+                <input type="text" class="form-control" name="visit_from" id="visit_from" placeholder="Coming From">
+              </div>
 
-<div class="form-row"> 
-<div class="form-group col-md-6">
-  <!-- <label for="inputFrom">From</label> -->
-  <input type="text" class="form-control" name="visit_from" id="visit_from" placeholder="Coming From">
-</div>
-
-<div class="form-group col-md-6">
-  <!-- <label for="inputTo">Visitng To</label> -->
-  <!-- <input type="text" class="form-control" name="visit_to" id="visit_to" placeholder="Visiting To"> -->
-  <select id="visit_to" class="form-control" name="visit_to">
- 
-</select>
-</div>
-</div>
+            <div class="form-group col-md-6">
+              <select id="visit_to" class="form-control" name="visit_to">
+                @foreach($users as $user)
+                <option>{{$user['flat_no']}}&nbsp;{{$user['name']}}</option>
+                @endforeach
+              
+              </select>
+            </div>
+          </div>
 
 <div class="form-row"> 
 <div class="form-group col-md-6">
@@ -201,9 +195,14 @@
 </div>
 
 <div class="form-row"> 
-<div class="form-group col-md-6">
+<div class="form-group col-md-3">
   <!-- <label for="inputFrom">From</label> -->
-  <input type="datetime-local" class="form-control" name="Entry_time" id="Entry_time">
+  <input type="date" class="form-control" name="Entry_time" id="Entry_time">
+  <!-- <input type="date" class="form-control" name="Entry_time" id="Entry_time" placeholder="In Time"> -->
+</div>
+<div class="form-group col-md-3">
+  <!-- <label for="inputFrom">From</label> -->
+  <input type="time" class="form-control" name="Entry_time" id="Entry_time">
   <!-- <input type="date" class="form-control" name="Entry_time" id="Entry_time" placeholder="In Time"> -->
 </div>
 <div class="form-group col-md-6">
@@ -248,11 +247,11 @@
 
 
 
-<div class="col-sm-6">
+<!-- <div class="col-sm-6">
   <div class="card" >
     
     <div class="card-body shadow p-3  rounded" style="height:24rem;">
-      <h5 class="card-title" align="center"> Staff Entry Form</h5>
+      <h5 class="card-title" align="center"> Staff Entry Form</h5> -->
           <!-- @if(Session::get('status'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
           {{Session::get('status')}}
@@ -261,7 +260,7 @@
           </button>
         </div>
           @endif       -->
-        <div class="container"> 
+        <!-- <div class="container"> 
           
         <form method="POST" action="member">
 		@csrf
@@ -305,7 +304,7 @@
 
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
 

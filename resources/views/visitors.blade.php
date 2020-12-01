@@ -22,19 +22,7 @@
 
   <form action="visitors" method="POST">
   @csrf
-  <div class="row input-datarange">
-
-	<div class="col-md-4">
-		<input type="date" name="Entry_time" class="form-control" placeholder="From Date">
-		<label>Please select Date First</label>
-		
-	</div>
-
-	<div class="col-md-4">
-		<input type="date" name="Exit_time" class="form-control" placeholder="To Date">
-		
-
-	</div>
+  
 
 	<div class="col-md-4">
 		<button type="submit" id="filter" class="btn btn-primary" >Submit</button>

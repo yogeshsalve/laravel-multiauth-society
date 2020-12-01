@@ -59,7 +59,7 @@ class VisitorController extends Controller
     		
     			$from=$request->date1;
     			$to=$request->date2;
-    			$data = visitor::whereBetween('Exit_time',[$from,$to])->get();
+    			$data = visitor::whereBetween('Entry_time',[$from,$to])->get();
 
     	   		   return view('visitor_list',['data'=>$data ]);
 
@@ -88,17 +88,17 @@ class VisitorController extends Controller
         return view('maintenance/maintenance-entry',['users'=>$data]);
     }
 
-   
+   //show flat and user name on member page
+   public function show_flatusername()
+   {
+       
+       $data= User::all();
+       return view('member',['users'=>$data]);
+   }
 
 
 
-
-    // public function showvisitors()
-    // {
-    	
-    //     $data= visitor::all();
-    //     return view('member',['visitors'=>$data]);
-    // }
+    
 
 
 
@@ -121,15 +121,15 @@ class VisitorController extends Controller
     }
 
     // display visitors table on member blade
-    public function displayonmember()
-    {
+    // public function displayonmember()
+    // {
                
-        $data= visitor::where('Exit_time', '2020-11-27')->paginate(5);
+    //     $data= visitor::where('Exit_time', '2020-11-27')->paginate(5);
         
-        return view('member',['visitors'=>$data]);
+    //     return view('member',['visitors'=>$data]);
 
         
-    }
+    // }
 
     public function staff_attendance( Request $request)
 	{
